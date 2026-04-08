@@ -1,12 +1,12 @@
 import { ScrollView, StyleSheet, Text } from "react-native";
 
-export default function DashboardScreen() {
+export default function SurveyScreen() {
   return (
     <ScrollView
       style={styles.content}
       contentContainerStyle={styles.contentContainer}
     >
-      <Text>This is the Dashboard page</Text>
+      <Text>This is the Survey page</Text>
     </ScrollView>
   );
 }
