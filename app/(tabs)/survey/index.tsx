@@ -1,6 +1,12 @@
+import { useGenerateSurveyModel } from "@/hooks/useGenerateSurveyModel";
 import { ScrollView, StyleSheet, Text } from "react-native";
 
 export default function SurveyScreen() {
+  const { surveyModel, loading, error } = useGenerateSurveyModel({
+    version: "1",
+    country: "Belgium",
+  });
+
   return (
     <ScrollView
       style={styles.content}
