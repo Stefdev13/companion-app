@@ -1,9 +1,26 @@
+import { appColours } from "@/constants/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Tabs } from "expo-router";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function RootLayout() {
+  const insets = useSafeAreaInsets();
+  const bottomInset = Math.max(insets.bottom + 30, 12);
+
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarStyle: {
+          height: bottomInset + 40,
+          paddingHorizontal: 8,
+          paddingBottom: bottomInset,
+          paddingTop: 8,
+          backgroundColor: appColours.eikcoMain,
+        },
+        tabBarActiveTintColor: appColours.generalMid,
+        tabBarInactiveTintColor: appColours.backgroundAccent,
+      }}
+    >
       <Tabs.Screen
         name="survey"
         options={{
@@ -15,6 +32,7 @@ export default function RootLayout() {
               color={color}
             />
           ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -22,8 +40,13 @@ export default function RootLayout() {
         options={{
           title: "My Emissions",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="bar-chart" size={size ?? 24} color={color} />
+            <Ionicons
+              name="pie-chart-outline"
+              size={size ?? 24}
+              color={color}
+            />
           ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -31,8 +54,9 @@ export default function RootLayout() {
         options={{
           title: "Dashboard",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size ?? 24} color={color} />
+            <Ionicons name="grid-outline" size={size ?? 24} color={color} />
           ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -42,6 +66,7 @@ export default function RootLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="trending-down" size={size ?? 24} color={color} />
           ),
+          headerShown: false,
         }}
       />
     </Tabs>
