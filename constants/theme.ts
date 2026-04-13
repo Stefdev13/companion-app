@@ -41,15 +41,20 @@ export const appColours = {
 export const fonts = {
   text: {
     fontFamily: "text-regular",
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 15,
+    lineHeight: 18,
   } satisfies TextStyle,
   textItalic: {
     fontFamily: "text-italic",
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 15,
+    lineHeight: 18,
   } satisfies TextStyle,
   textExtraBold: {
+    fontFamily: "text-extrabold",
+    fontSize: 15,
+    lineHeight: 18,
+  } satisfies TextStyle,
+  textSmallHeading: {
     fontFamily: "text-extrabold",
     fontSize: 16,
     lineHeight: 24,
@@ -59,4 +64,31 @@ export const fonts = {
     fontSize: 32,
     lineHeight: 24,
   } satisfies TextStyle,
+} as const;
+
+export const iconNames = {
+  mobility: "car",
+  travel: "airplane",
+  home: "home",
+  food: "pizza",
+  purchasingHabits: "cart",
+  general: "pie-chart",
+
+  backBtn: "chevron-back",
+  forwardBtn: "chevron-forward",
+  addBtn: "add",
+  filterBtn: "funnel-outline",
+  searchBtn: "search",
+  sortBtn: "swap-vertical",
+  closeBtn: "close",
+  layoutBtn: "grid-outline",
+  settingsBtn: "settings-outline",
+
+  increase: "trending-up",
+  decrease: "trending-down",
+
+  survey: "clipboard",
+  emissions: "pie-chart",
+  dashboard: "grid",
+  reductions: "trending-down",
 } as const;
