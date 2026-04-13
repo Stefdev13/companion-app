@@ -1,3 +1,5 @@
+import { TextStyle } from "react-native";
+
 export const appColours = {
   backgroundColour: "#E7EEE9",
   backgroundAccent: "#F9FFFB",
@@ -34,4 +36,27 @@ export const appColours = {
   generalMid: "#FFFF7F",
   generalDark: "#BFBF00",
   generalExtraDark: "#8C8C00",
+} as const;
+
+export const fonts = {
+  text: {
+    fontFamily: "text-regular",
+    fontSize: 16,
+    lineHeight: 24,
+  } satisfies TextStyle,
+  textItalic: {
+    fontFamily: "text-italic",
+    fontSize: 16,
+    lineHeight: 24,
+  } satisfies TextStyle,
+  textExtraBold: {
+    fontFamily: "text-extrabold",
+    fontSize: 16,
+    lineHeight: 24,
+  } satisfies TextStyle,
+  heading: {
+    fontFamily: "heading",
+    fontSize: 32,
+    lineHeight: 24,
+  } satisfies TextStyle,
 } as const;
