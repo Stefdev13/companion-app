@@ -1,3 +1,4 @@
+import { SurveyModelSchema } from "@/schemas/survey-model.schema";
 import { SurveyModel } from "@/types/survey-model-types";
 import { useEffect, useState } from "react";
 
@@ -42,13 +43,11 @@ export function useGenerateSurveyModel({
         if (!res.ok) {
           throw new Error(`Request failed: ${res.status}`);
         }
-        const surveyModel = (await res.json()) as SurveyModel;
-        setSurveyModel(surveyModel);
+        const response = await res.json();
+
+        setSurveyModel(SurveyModelSchema.parse(response));
       } catch (e) {
         // Aborted requests reject with DOMException name "AbortError" — don't show that as a user error
-        if (e instanceof Error && e.name === "AbortError") {
-          return;
-        }
         setError(e instanceof Error ? e.message : "Something went wrong");
       } finally {
         // Always clear loading whether we succeeded, failed, or aborted
@@ -60,7 +59,7 @@ export function useGenerateSurveyModel({
 
     // Cleanup: when leaving the screen, cancel any in-flight request
     return () => controller.abort();
-  }, []);
+  });
 
   return { surveyModel, loading, error };
 }
