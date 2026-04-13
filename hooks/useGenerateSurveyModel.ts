@@ -44,10 +44,8 @@ export function useGenerateSurveyModel({
           throw new Error(`Request failed: ${res.status}`);
         }
         const response = await res.json();
-
         setSurveyModel(SurveyModelSchema.parse(response));
       } catch (e) {
-        // Aborted requests reject with DOMException name "AbortError" — don't show that as a user error
         setError(e instanceof Error ? e.message : "Something went wrong");
       } finally {
         // Always clear loading whether we succeeded, failed, or aborted
@@ -59,7 +57,7 @@ export function useGenerateSurveyModel({
 
     // Cleanup: when leaving the screen, cancel any in-flight request
     return () => controller.abort();
-  });
+  }, []);
 
   return { surveyModel, loading, error };
 }

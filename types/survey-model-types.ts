@@ -33,7 +33,7 @@ export type Question = {
   newCustomOptionPrompt: string;
   allowReusableQuestionOptions: boolean;
   reusableQuestionOptionsTags: string[];
-  dynamicQuestionOptionParams: string[];
+  dynamicQuestionOptionParams: string[] | null;
 };
 
 //Question options
