@@ -6,7 +6,9 @@ export const appColours = {
   accent: "#FF9800",
 
   lightGrey: "#EFEFEF",
-  darkGrey: "#999999",
+  grey: "#999999",
+  darkGrey: "#4E4E4E",
+  shadow: "#E8E8E8",
 
   eikcoMain: "#215B4D",
   eikcoNearBlack: "#163A31",

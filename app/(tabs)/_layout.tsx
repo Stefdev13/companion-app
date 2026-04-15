@@ -2,6 +2,7 @@ import { appColours } from "@/constants/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import * as theme from "../../constants/theme";
 
 export default function RootLayout() {
   const insets = useSafeAreaInsets();
@@ -15,19 +16,29 @@ export default function RootLayout() {
           paddingHorizontal: 8,
           paddingBottom: bottomInset,
           paddingTop: 8,
-          backgroundColor: appColours.eikcoMain,
+          backgroundColor: appColours.backgroundColour,
+          boxShadow: [
+            {
+              offsetX: 0,
+              offsetY: -4,
+              blurRadius: "12px",
+              spreadDistance: "2px",
+              color: theme.appColours.shadow,
+              inset: false,
+            },
+          ],
         },
-        tabBarActiveTintColor: appColours.generalMid,
-        tabBarInactiveTintColor: appColours.backgroundAccent,
+        tabBarActiveTintColor: appColours.eikcoMain,
+        tabBarInactiveTintColor: appColours.darkGrey,
       }}
     >
       <Tabs.Screen
         name="survey"
         options={{
           title: "Survey",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
-              name="clipboard-outline"
+              name={focused ? "clipboard" : "clipboard-outline"}
               size={size ?? 24}
               color={color}
             />
@@ -39,9 +50,9 @@ export default function RootLayout() {
         name="emissions"
         options={{
           title: "My Emissions",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
-              name="pie-chart-outline"
+              name={focused ? "pie-chart" : "pie-chart-outline"}
               size={size ?? 24}
               color={color}
             />
@@ -53,8 +64,12 @@ export default function RootLayout() {
         name="index"
         options={{
           title: "Dashboard",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="grid-outline" size={size ?? 24} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? "grid" : "grid-outline"}
+              size={size ?? 24}
+              color={color}
+            />
           ),
           headerShown: false,
         }}
@@ -63,7 +78,7 @@ export default function RootLayout() {
         name="reductions"
         options={{
           title: "Reductions",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name="trending-down" size={size ?? 24} color={color} />
           ),
           headerShown: false,
