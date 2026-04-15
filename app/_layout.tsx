@@ -12,6 +12,8 @@ export default function RootLayout() {
     "text-extrabold": require("../assets/fonts/Nunito-ExtraBold.ttf"),
     "text-extrabold-italic": require("../assets/fonts/Nunito-ExtraBoldItalic.ttf"),
     heading: require("../assets/fonts/Vollkorn-Bold.ttf"),
+    "logo-semibold": require("../assets/fonts/JosefinSans-SemiBold.ttf"),
+    "logo-light": require("../assets/fonts/JosefinSans-Light.ttf"),
   });
 
   return (

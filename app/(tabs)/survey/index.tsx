@@ -1,7 +1,8 @@
 import { LoadingSpinner } from "@/components/survey/LoadingSpinner";
 import { SurveyCategoryComponent } from "@/components/survey/SurveyCategory";
+import SurveyHeaderComponent from "@/components/survey/SurveyHeader";
 import { useGenerateSurveyModel } from "@/hooks/useGenerateSurveyModel";
-import { ScrollView, StyleSheet, Text } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function SurveyScreen() {
@@ -12,26 +13,23 @@ export default function SurveyScreen() {
   });
 
   return (
-    <ScrollView
-      style={[
-        styles.content,
-        { paddingTop: insets.top + 10, paddingBottom: insets.bottom + 10 },
-      ]}
-      contentContainerStyle={styles.contentContainer}
-    >
-      {loading && <LoadingSpinner />}
-      {!loading && error && <Text>{error}</Text>}
-      {!loading &&
-        !error &&
-        surveyModel &&
-        surveyModel.surveyCategories.map((category) => {
-          return (
-            <SurveyCategoryComponent
-              key={category.id ?? category.categoryName}
-              surveyCategory={category}
-            />
-          );
-        })}
+    <ScrollView>
+      <SurveyHeaderComponent />
+      <View style={[styles.content, { paddingBottom: insets.bottom + 10 }]}>
+        {loading && <LoadingSpinner />}
+        {!loading && error && <Text>{error}</Text>}
+        {!loading &&
+          !error &&
+          surveyModel &&
+          surveyModel.surveyCategories.map((category) => {
+            return (
+              <SurveyCategoryComponent
+                key={category.id ?? category.categoryName}
+                surveyCategory={category}
+              />
+            );
+          })}
+      </View>
     </ScrollView>
   );
 }
@@ -39,12 +37,12 @@ export default function SurveyScreen() {
 const styles = StyleSheet.create({
   content: {
     backgroundColor: "#fff",
-    paddingHorizontal: 25,
-  },
-  contentContainer: {
+
+    paddingHorizontal: 20,
+    paddingTop: 20,
+
     flexDirection: "row",
     flexWrap: "wrap",
-
     gap: 20,
 
     justifyContent: "flex-start",

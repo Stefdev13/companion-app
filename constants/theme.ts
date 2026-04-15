@@ -3,11 +3,13 @@ import { TextStyle } from "react-native";
 export const appColours = {
   backgroundColour: "#E7EEE9",
   backgroundAccent: "#F9FFFB",
+  accent: "#FF9800",
 
   lightGrey: "#EFEFEF",
   darkGrey: "#999999",
 
   eikcoMain: "#215B4D",
+  eikcoNearBlack: "#163A31",
 
   mobilityLight: "#BFFFF0",
   mobilityMid: "#7FFFE1",
@@ -61,8 +63,18 @@ export const fonts = {
   } satisfies TextStyle,
   heading: {
     fontFamily: "heading",
-    fontSize: 32,
-    lineHeight: 24,
+    fontSize: 36,
+    color: appColours.eikcoNearBlack,
+  } satisfies TextStyle,
+  logoSemiBold: {
+    fontFamily: "logo-semibold",
+    fontSize: 28,
+    color: appColours.eikcoMain,
+  } satisfies TextStyle,
+  logoLight: {
+    fontFamily: "logo-light",
+    fontSize: 28,
+    color: appColours.accent,
   } satisfies TextStyle,
 } as const;
 
