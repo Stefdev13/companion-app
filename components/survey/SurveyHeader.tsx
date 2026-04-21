@@ -1,3 +1,4 @@
+import { Image } from "expo-image";
 import { StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as theme from "../../constants/theme";
@@ -9,8 +10,11 @@ export default function SurveyHeaderComponent() {
     <View style={[styles.header, { paddingTop: insets.top + 5 }]}>
       <View style={styles.topBar}>
         <View style={styles.logoContainer}>
-          <Text style={styles.logoEik}>eik</Text>
-          <Text style={styles.logoCo}>co</Text>
+          <Image
+            source={require("@/assets/images/logo-light.png")}
+            style={styles.logoImage}
+            contentFit="contain"
+          />
         </View>
       </View>
       <View style={styles.titleContainer}>
@@ -26,7 +30,7 @@ export default function SurveyHeaderComponent() {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    gap: 10,
+    gap: 0,
 
     backgroundColor: theme.appColours.backgroundColour,
 
@@ -44,6 +48,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-end",
     gap: 0,
+  },
+  logoImage: {
+    width: 130,
+    height: 42,
   },
   logoEik: {
     ...theme.fonts.logoSemiBold,

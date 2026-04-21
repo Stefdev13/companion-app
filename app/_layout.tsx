@@ -19,15 +19,13 @@ export default function RootLayout() {
     "logo-semibold": require("../assets/fonts/JosefinSans-SemiBold.ttf"),
     "logo-light": require("../assets/fonts/JosefinSans-Light.ttf"),
   });
+  const { user, isLoaded, error } = useGetUserData();
+  const userDataStore = useUserDataStore();
 
   SplashScreen.preventAutoHideAsync();
 
-  const { user, isLoaded, error } = useGetUserData();
-
   useEffect(() => {
     if (isLoaded && fontsLoaded) {
-      const userDataStore = useUserDataStore();
-
       // isLoaded already checks !loading && !error && user !== null -> user! is okay here
       userDataStore.setUserData(user!);
 
