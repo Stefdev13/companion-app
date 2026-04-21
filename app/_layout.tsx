@@ -1,8 +1,12 @@
+import { useGetUserData } from "@/hooks/useGetUserData";
+import { useUserDataStore } from "@/stores/UserDataStore";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     "text-regular": require("../assets/fonts/Nunito-Regular.ttf"),
     "text-italic": require("../assets/fonts/Nunito-Italic.ttf"),
     "text-light": require("../assets/fonts/Nunito-Light.ttf"),
@@ -15,6 +19,22 @@ export default function RootLayout() {
     "logo-semibold": require("../assets/fonts/JosefinSans-SemiBold.ttf"),
     "logo-light": require("../assets/fonts/JosefinSans-Light.ttf"),
   });
+
+  SplashScreen.preventAutoHideAsync();
+
+  const { user, isLoaded, error } = useGetUserData();
+
+  useEffect(() => {
+    if (isLoaded && fontsLoaded) {
+      const userDataStore = useUserDataStore();
+
+      // isLoaded already checks !loading && !error && user !== null -> user! is okay here
+      userDataStore.setUserData(user!);
+
+      SplashScreen.hide();
+    }
+    // Add error case here
+  }, [isLoaded, error]);
 
   return (
     <Stack>
