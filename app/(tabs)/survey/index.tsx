@@ -1,26 +1,18 @@
-import { LoadingSpinner } from "@/components/survey/LoadingSpinner";
 import { SurveyCategoryComponent } from "@/components/survey/SurveyCategory";
 import SurveyHeaderComponent from "@/components/survey/SurveyHeader";
-import { useGenerateSurveyModel } from "@/hooks/useGenerateSurveyModel";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { useUserDataStore } from "@/stores/UserDataStore";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function SurveyScreen() {
   const insets = useSafeAreaInsets();
-  const { surveyModel, loading, error } = useGenerateSurveyModel({
-    version: "1",
-    country: "Belgium",
-  });
+  const surveyModel = useUserDataStore((state) => state.user?.SurveyModel);
 
   return (
     <ScrollView>
       <SurveyHeaderComponent />
       <View style={[styles.content, { paddingBottom: insets.bottom + 10 }]}>
-        {loading && <LoadingSpinner />}
-        {!loading && error && <Text>{error}</Text>}
-        {!loading &&
-          !error &&
-          surveyModel &&
+        {surveyModel &&
           surveyModel.surveyCategories.map((category) => {
             return (
               <SurveyCategoryComponent
