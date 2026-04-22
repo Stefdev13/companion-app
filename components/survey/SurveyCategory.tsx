@@ -1,6 +1,7 @@
 import { getColourForCategory } from "@/utils/getColourForCategory";
 import { getIconNameForCategory } from "@/utils/getIconForCategory";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import * as theme from "../../constants/theme";
 import { SurveyCategory } from "../../types/survey-model-types";
@@ -11,7 +12,15 @@ type Props = {
 
 export function SurveyCategoryComponent({ surveyCategory }: Props) {
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() =>
+        router.push({
+          pathname: "/(tabs)/survey/surveycategory",
+          params: { surveyCategoryId: surveyCategory.id },
+        })
+      }
+    >
       <View style={styles.textContainer}>
         <View style={styles.headingContainer}>
           <View
@@ -62,7 +71,7 @@ export function SurveyCategoryComponent({ surveyCategory }: Props) {
           // color={theme.appColours.darkGrey}
         />
       </Pressable>
-    </View>
+    </Pressable>
   );
 }
 

@@ -1,6 +1,6 @@
+import { useGetSurveyCategoryById } from "@/hooks/useGetSurveyCategoryById";
 import { useLocalSearchParams } from "expo-router";
-import { ScrollView } from "react-native";
-// import { FlatList, ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 type Params = {
   surveyCategoryId: string;
@@ -8,14 +8,15 @@ type Params = {
 
 export default function SurveyCategoryScreen() {
   const { surveyCategoryId } = useLocalSearchParams<Params>();
+  const surveyCategory = useGetSurveyCategoryById(surveyCategoryId);
 
   return (
     <ScrollView>
-      {/* <View>
-        <Text></Text>
-        <Text></Text>
-      </View>
-      <FlatList></FlatList> */}
+      {surveyCategory != null && (
+        <View>
+          <Text>{surveyCategory.categoryName}</Text>
+        </View>
+      )}
     </ScrollView>
   );
 }
