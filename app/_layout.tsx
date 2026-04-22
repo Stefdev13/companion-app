@@ -4,6 +4,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { Alert } from "react-native";
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
@@ -30,8 +31,13 @@ export default function RootLayout() {
       userDataStore.setUserData(user!);
 
       SplashScreen.hide();
+    } else if (error) {
+      Alert.alert(
+        "Couldn’t load your data",
+        "Check your connection or try again later.",
+        [{ text: "OK", style: "cancel" }],
+      );
     }
-    // Add error case here
   }, [isLoaded, error]);
 
   return (
