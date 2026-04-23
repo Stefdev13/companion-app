@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {},
   title: {
-    ...theme.fonts.heading,
+    ...theme.fonts.pageHeading,
   },
   description: {
     ...theme.fonts.text,

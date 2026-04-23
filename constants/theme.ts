@@ -58,12 +58,12 @@ export const fonts = {
     fontSize: 16,
     lineHeight: 18,
   } satisfies TextStyle,
-  textSmallHeading: {
-    fontFamily: "text-extrabold",
-    fontSize: 16,
+  smallHeading: {
+    fontFamily: "text-semibold",
+    fontSize: 20,
     lineHeight: 24,
   } satisfies TextStyle,
-  heading: {
+  pageHeading: {
     fontFamily: "heading",
     fontSize: 36,
     color: appColours.eikcoNearBlack,
