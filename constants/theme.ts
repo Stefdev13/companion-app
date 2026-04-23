@@ -45,17 +45,17 @@ export const appColours = {
 export const fonts = {
   text: {
     fontFamily: "text-regular",
-    fontSize: 15,
+    fontSize: 16,
     lineHeight: 18,
   } satisfies TextStyle,
   textItalic: {
     fontFamily: "text-italic",
-    fontSize: 15,
+    fontSize: 16,
     lineHeight: 18,
   } satisfies TextStyle,
   textExtraBold: {
     fontFamily: "text-extrabold",
-    fontSize: 15,
+    fontSize: 16,
     lineHeight: 18,
   } satisfies TextStyle,
   textSmallHeading: {
@@ -66,6 +66,11 @@ export const fonts = {
   heading: {
     fontFamily: "heading",
     fontSize: 36,
+    color: appColours.eikcoNearBlack,
+  } satisfies TextStyle,
+  question: {
+    fontFamily: "heading",
+    fontSize: 28,
     color: appColours.eikcoNearBlack,
   } satisfies TextStyle,
   logoSemiBold: {

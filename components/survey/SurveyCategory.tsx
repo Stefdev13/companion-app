@@ -61,16 +61,12 @@ export function SurveyCategoryComponent({ surveyCategory }: Props) {
         <Text style={styles.description}>{surveyCategory.description}</Text>
       </View>
 
-      <Pressable style={styles.button}>
+      <View style={styles.button}>
         <Text style={styles.buttonText}>
           {surveyCategory.questions.length} question(s)
         </Text>
-        <Ionicons
-          name={theme.iconNames.forwardBtn}
-          size={15}
-          // color={theme.appColours.darkGrey}
-        />
-      </Pressable>
+        <Ionicons name={theme.iconNames.forwardBtn} size={15} />
+      </View>
     </Pressable>
   );
 }
