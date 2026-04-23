@@ -45,17 +45,17 @@ export const appColours = {
 export const fonts = {
   text: {
     fontFamily: "text-regular",
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 18,
   } satisfies TextStyle,
   textItalic: {
     fontFamily: "text-italic",
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 18,
   } satisfies TextStyle,
   textExtraBold: {
     fontFamily: "text-extrabold",
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 18,
   } satisfies TextStyle,
   smallHeading: {

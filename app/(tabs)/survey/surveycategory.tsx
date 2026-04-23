@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
   page: {
     paddingHorizontal: 20,
     gap: 40,
+
+    backgroundColor: "#fff",
   },
 
   titleAndDescription: {
