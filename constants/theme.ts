@@ -60,7 +60,7 @@ export const fonts = {
   } satisfies TextStyle,
   smallHeading: {
     fontFamily: "text-semibold",
-    fontSize: 20,
+    fontSize: 18,
     lineHeight: 24,
   } satisfies TextStyle,
   pageHeading: {

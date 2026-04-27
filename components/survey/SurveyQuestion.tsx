@@ -11,7 +11,7 @@ export default function SurveyQuestionComponent({ question }: Props) {
   return (
     <Pressable style={styles.container}>
       <View style={styles.titleAndAnswer}>
-        <Text style={styles.title}>{question.questionName}</Text>
+        <Text style={styles.title}>{question.shortQuestionName}</Text>
         <Text style={styles.answer}>This is a placeholder</Text>
       </View>
       <Ionicons
@@ -33,12 +33,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: 20,
 
-    paddingVertical: 25,
+    paddingVertical: 15,
 
     borderBottomColor: theme.appColours.grey,
     borderBottomWidth: 1,
   },
-  titleAndAnswer: { width: "85%", gap: 5 },
+  titleAndAnswer: { width: "85%", gap: 0 },
   icon: { width: "12%" },
   title: {
     ...theme.fonts.smallHeading,

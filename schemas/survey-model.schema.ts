@@ -1,15 +1,15 @@
 import { QuestionType } from "@/enums/survey-enums";
 import {
-    DisplayRule,
-    FJLeg,
-    FJQuestionOption,
-    Question,
-    QuestionOption,
-    ReusableQuestionOption,
-    StandardQuestionOption,
-    SubQuestion,
-    SurveyCategory,
-    SurveyModel,
+  DisplayRule,
+  FJLeg,
+  FJQuestionOption,
+  Question,
+  QuestionOption,
+  ReusableQuestionOption,
+  StandardQuestionOption,
+  SubQuestion,
+  SurveyCategory,
+  SurveyModel,
 } from "@/types/survey-model-types";
 import * as zod from "zod";
 
@@ -87,6 +87,7 @@ export const FJQuestionOptionSchema = zod.object({
 export const QuestionSchema = zod.object({
   id: zod.coerce.number().nullable(),
   questionName: zod.string(),
+  shortQuestionName: zod.string(),
   description: zod.string(),
   tips: zod.array(zod.string()),
   questionOptions: zod.array(QuestionOptionSchema),

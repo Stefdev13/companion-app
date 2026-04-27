@@ -25,6 +25,7 @@ export type ReusableQuestionOption = {
 export type Question = {
   id: number | null;
   questionName: string;
+  shortQuestionName: string;
   description: string;
   tips: string[];
   questionOptions: QuestionOption[];
