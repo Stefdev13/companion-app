@@ -41,7 +41,11 @@ export default function SurveyCategoryScreen() {
 
         <View>
           {surveyCategory.questions.map((question) => (
-            <SurveyQuestionComponent key={question.id} question={question} />
+            <SurveyQuestionComponent
+              key={question.id}
+              question={question}
+              surveyCategoryId={surveyCategoryId}
+            />
           ))}
         </View>
       </ScrollView>

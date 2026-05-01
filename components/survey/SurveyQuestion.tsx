@@ -1,15 +1,31 @@
 import * as theme from "@/constants/theme";
 import { Question } from "@/types/survey-model-types";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type Props = {
   question: Question;
+  surveyCategoryId: string;
 };
 
-export default function SurveyQuestionComponent({ question }: Props) {
+export default function SurveyQuestionComponent({
+  question,
+  surveyCategoryId,
+}: Props) {
   return (
-    <Pressable style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() =>
+        router.push({
+          pathname: "/(tabs)/survey/question",
+          params: {
+            surveyCategoryId: surveyCategoryId,
+            questionId: question.id,
+          },
+        })
+      }
+    >
       <View style={styles.titleAndAnswer}>
         <Text style={styles.title}>{question.shortQuestionName}</Text>
         <Text style={styles.answer}>This is a placeholder</Text>
