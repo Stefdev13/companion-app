@@ -2,15 +2,20 @@ import { Stack } from "expo-router";
 
 export default function SurveyLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: "#fff" },
+      }}
+    >
+      <Stack.Screen name="index" />
       <Stack.Screen
         name="surveycategory"
-        options={{ headerShown: false, animation: "slide_from_right" }}
+        options={{ animation: "slide_from_right" }}
       />
       <Stack.Screen
         name="question"
-        options={{ headerShown: false, animation: "slide_from_right" }}
+        options={{ animation: "slide_from_right" }}
       />
     </Stack>
   );
